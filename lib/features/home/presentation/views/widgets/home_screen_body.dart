@@ -1,4 +1,5 @@
-import 'package:bookly_app/features/splash/presentation/views/widgets/custom_app_bar.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/featured_list.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreenBody extends StatelessWidget {
@@ -9,6 +10,7 @@ class HomeScreenBody extends StatelessWidget {
     return Column(
       children: const [
         CustomAppBar(),
+        FeaturedList(),
       ],
     );
   }
