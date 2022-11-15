@@ -9,6 +9,7 @@ class FeaturedList extends StatelessWidget {
     return SizedBox(
       height: 220,
       child: ListView.builder(
+        physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           return const FeaturedListItem();
