@@ -1,4 +1,7 @@
+import 'package:bookly_app/constants.dart';
+import 'package:bookly_app/features/home/presentation/views/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SplashScreenBody extends StatefulWidget {
   const SplashScreenBody({Key? key}) : super(key: key);
@@ -16,17 +19,8 @@ class _SplashScreenBodyState extends State<SplashScreenBody>
   @override
   void initState() {
     super.initState();
-    animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 2),
-    );
-    subSlidingAnimation =
-        Tween<Offset>(begin: const Offset(0, 6), end: Offset.zero)
-            .animate(animationController);
-    baseSlidingAnimation =
-        Tween<Offset>(begin: const Offset(-6, 0), end: Offset.zero)
-            .animate(animationController);
-    animationController.forward();
+    initSlidingAnimation();
+    navigateToHome();
   }
 
   @override
@@ -74,6 +68,31 @@ class _SplashScreenBodyState extends State<SplashScreenBody>
           },
         ),
       ],
+    );
+  }
+
+  void initSlidingAnimation() {
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1),
+    );
+    subSlidingAnimation =
+        Tween<Offset>(begin: const Offset(0, 6), end: Offset.zero)
+            .animate(animationController);
+    baseSlidingAnimation =
+        Tween<Offset>(begin: const Offset(-6, 0), end: Offset.zero)
+            .animate(animationController);
+    animationController.forward();
+  }
+
+  void navigateToHome() {
+    Future.delayed(
+      const Duration(seconds: 4),
+      () => Get.to(
+        const HomeScreen(),
+        transition: Transition.downToUp,
+        duration: kTransitionDuration,
+      ),
     );
   }
 }
