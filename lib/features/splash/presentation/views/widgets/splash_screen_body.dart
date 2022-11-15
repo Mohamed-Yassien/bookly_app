@@ -12,9 +12,16 @@ class SplashScreenBody extends StatelessWidget {
         Text(
           'BoOkLY',
           style: TextStyle(
-            color: Colors.white,
             fontSize: 40,
             fontWeight: FontWeight.w900,
+          ),
+          textAlign: TextAlign.center,
+        ),
+        Text(
+          'Read Free Books',
+          style: TextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.w500,
           ),
           textAlign: TextAlign.center,
         ),
